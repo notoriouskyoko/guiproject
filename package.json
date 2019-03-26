@@ -1,0 +1,35 @@
+{
+  "name": "guiproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "bulma": "^0.7.4",
+    "dateformat": "^3.0.3",
+    "handlebars": "^4.1.0",
+    "hapi": "^18.1.0",
+    "hapi-auth-cookie": "^9.1.0",
+    "hapi-authorization": "^4.0.0",
+    "hapi-dev-errors": "^3.2.2",
+    "hapi-mongodb": "^8.0.0",
+    "hapi-nuxt": "^1.0.1",
+    "inert": "^5.1.2",
+    "iplocation": "^6.1.0",
+    "joi": "^14.3.1",
+    "mongodb": "^3.1.13",
+    "nuxt": "^2.4.5",
+    "remote-file-size": "^3.0.5",
+    "sass": "^1.17.0",
+    "unirest": "^0.6.0",
+    "vision": "^5.4.4",
+    "vue": "^2.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

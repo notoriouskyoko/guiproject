@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>doggiesplay</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Et sted for hundejere til at finde legeaftaler" name="Description">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          rel="stylesheet">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: rgba(2,2,4,1) !important;">
+    <a class="navbar-brand" href="#" style="color: rgba(242,235,255,0.84) !important;">
+        <img alt="" class="d-inline-block align-top" height="30" src="./img/baseline-pets-24px.svg"
+             style="color: cadetblue" width="30">
+        Doggiesplay
+    </a>
+    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarNav" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <button onclick="showMap()" class="btn btn-secondary" ><a class="nav-link" href="#Map">Map</a></button>
+            </li>
+            <li class="nav-item">
+                <button onclick="showFriends()" class="btn btn-secondary" ><a class="nav-link" href="#Friends">Friends</a></button>
+            </li>
+            <li class="nav-item">
+                <button onclick="showComingEvents()" class="btn btn-secondary" ><a class="nav-link" href="#Coming_events">Coming events</a></button>
+            </li>
+        </ul>
+    </div>
+    <div class="currentUsername">
+        <p class="title">{{username}}</p>
+        <div class="dropdown" style="display: inline">
+            <button aria-expanded="false" aria-haspopup="true" class="btn bmd-btn-icon dropdown-toggle"
+                    data-toggle="dropdown" id="userDropDownMenuButton" type="button">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <div aria-labelledby="ex1" class="dropdown-menu dropdown-menu-left" style="margin-left: -6vw;">
+                <button class="dropdown-item" data-target=".bd-example-modal-lg" onclick="openProfile()"
+                        type="button"><i class="material-icons">account_box</i> profile
+                </button>
+                <button class="dropdown-item" type="button">Settings</button>
+                <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<span id="CreateEventButtonGroup" class="btn-group-lg">
+    <span id="labelButton1" class="buttontooltip">Create Event</span>
+    <button type="button" class="btn btn-danger bmd-btn-fab" id="CreateEventButton"  onclick="ShowNewEventDialog()">
+        <i class="material-icons">
+            create
+        </i>
+    </button>
+</span>
+
+<div aria-hidden="true" aria-labelledby="ModalLabel" class="modal fade" id="profileModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">{{username}}</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <ul class="list-group bmd-list-group-sm">
+                        <a class="list-group-item">
+                            <div class="bmd-list-group-col">
+                                <p class="list-group-item-heading">Email</p>
+                                <p class="list-group-item-text">{{email}}</p>
+                            </div>
+                        </a>
+                        <a class="list-group-item">
+                            <div class="bmd-list-group-col">
+                                <p class="list-group-item-heading">Date registered</p>
+                                <p class="list-group-item-text">{{dateRegistered}}</p>
+                            </div>
+                        </a>
+                        <a class="list-group-item">
+                            <div class="bmd-list-group-col">
+                                <p class="list-group-item-heading">List group item heading</p>
+                                <p class="list-group-item-text">Some text</p>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="ModalLabel" class="modal fade" id="CreateEventModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalEventLabel">Create new event</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="Event-Creation-Form">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="inputPlayDateName">Event Name</label>
+                        <input class="form-control" id="inputPlayDateName" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="DescriptionTextarea">Description</label>
+                        <textarea class="form-control" id="DescriptionTextarea" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="placeSelect">Event Place</label>
+                        <select class="form-control" id="placeSelect" multiple>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="selectPlayDate">Event Date</label>
+                        <input class="form-control" id="selectPlayDate" max="2030-12-31"
+                               onfocus="(this.type='date')" onfocusout="(this.type='text')" type="text">
+                    </div>
+                    <button class="btn btn-raised btn-danger" data-target=".bd-example-modal-lg" onclick="test()"
+                            type="button">
+                        create event
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<span data-content="" data-toggle="snackbar" id="toast"></span>
+<div id='map'></div>
+<div class="comingevents" id="comingevents">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <h1>Coming events</h1>
+                <h3>See coming events</h3>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+               <div class="eventdata" id="eventdata">
+
+                   <div id="events" class="events">
+
+
+                   </div>
+               </div>
+
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="friends" id="friends">
+
+    <h1>Friends</h1>
+    <h3>(friend feature hasn't been implemented yet)</h3>
+
+</div>
+
+<footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>$(document).ready(function () {
+        $('body').bootstrapMaterialDesign();
+    });
+    </script>
+</footer>
+</body>
+</html>

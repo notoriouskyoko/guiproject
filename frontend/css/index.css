@@ -1,0 +1,116 @@
+
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+body {
+    margin:0; padding:0;
+    background: #171e2b;
+
+}
+#map {
+    position:absolute; top:0;
+    bottom:0;
+    width:100vw;
+    float: right;
+}
+.menu{
+    float: right;
+    position: relative;
+    width: 30vw;
+    height: 80vh;
+    color: #f2ebff
+}
+.title{
+    width: 10vw;
+    display: inline;
+    margin-left: 1rem;
+}
+.currentUsername{
+  width: auto;
+    display: inline;
+    position: relative;
+    float: right;
+    z-index: 1;
+    color: #fafafa;
+
+
+}
+#profileModal{
+    padding: 0.5rem;
+    filter: drop-shadow(1px 1px 2px #171e2b);
+}
+#toast{
+    position: relative;
+    z-index: 4;
+}
+#CreateEventButton{
+    filter: drop-shadow(1px 1px 10px black);
+
+}
+#CreateEventButtonGroup{
+    z-index: 4;
+    width: 4rem;
+    position: fixed;
+    right:2rem;
+    bottom:2rem;
+}
+.buttontooltip{
+    display: none;
+    position: fixed;
+    width: 4rem;
+    height: auto;
+    color: white;
+    bottom: 6rem;
+    font-size: 1rem;
+    z-index: 4;
+    filter: drop-shadow(1px 1px 1px black);
+
+}
+.comingevents{
+    display: none;
+    color: #ededed
+}
+.friends{
+    display: none;
+    color: #ededed
+}
+.list-group-item-text{
+    color: #ededed !important;
+}
+.eventdata{
+
+}
+.events{
+    width: 40vw;
+    height: 60vw;
+    overflow: scroll;
+}
+
+     /* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 0, 0, 0.96);
+}

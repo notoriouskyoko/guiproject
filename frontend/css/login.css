@@ -1,0 +1,66 @@
+.background{
+    /*background-color: #424242;*/
+    color: white;
+}
+.custom-title{
+    text-align: center;
+    color: rgba(255,255,255,1)!important;
+    margin: 0px 20px;
+
+}
+::placeholder{
+    color: rgb(161, 161, 167) !important;
+
+}
+
+*{
+    color: rgb(229, 229, 238) !important;
+
+}
+
+.container{
+    margin-top: 5rem;
+}
+.Login-Form{
+    min-width: 40vw;
+    max-width: 60vw;
+    color: white !important;
+    background: rgba(26,26,26,0.7);
+    padding: 20px;
+    margin: auto;
+}
+.Register-Form{
+    min-width: 40vw;
+    max-width: 60vw;
+    color: white !important;
+    background: rgba(26,26,26,0.7);
+    padding: 20px;
+    padding-bottom: 1px !important;
+    margin: auto;
+    display: none;
+
+}
+
+#title2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 5rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+body {
+    color: #fff;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+
+
+#Popup{
+    color: black !important;
+    background: rgba(97,119,175,0.63);
+    display: none;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+

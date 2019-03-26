@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>doggiesplay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Et sted for hundejere til at finde legeaftaler">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <script src="js/register.js" type="application/javascript"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+
+</head>
+
+<body class="background">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style=" background: rgba(8,8,8,0.7)!important;">
+    <a class="navbar-brand" style="" href="/">doggiesplay</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        </ul>
+    </div>
+</nav>
+<div class="center-block">
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+            </div>
+            <div class="col"></div>
+            <div class="w-100"></div>
+            <div class="col"></div>
+            <div class="col">
+                <div class="container">
+                    <div id="loginForm" class="Login-Form">
+                        <form method="post" action="/login">
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="InputEmailLogin">Email</label>
+                                <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="InputPasswordLogin">Password</label>
+                                <input type="password" class="form-control" id="InputPasswordLogin">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberme1">
+                                <label class="form-check-label" for="rememberme1">Remember me</label>
+                            </div>
+                            <button type="button" onClick="Userlogin()" class="btn btn-raised btn-danger">Login</button>
+                            <button type="button" onclick="ShowRegisteringForm()" class="btn btn-raised btn-danger">Register</button>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="Popup"class="alert alert-danger" role="alert"></div>
+                    <div id="registerForm" class="Register-Form">
+                        <form>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="inputfirstname">Firstname</label>
+                                <input type="text" id="inputfirstname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="inputlastname">Lastname</label>
+                                <input type="text" id="inputlastname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="inputEmailRegister">Email</label>
+                                <input type="email" class="form-control" id="inputEmailRegister">
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating"  for="inputPasswordRegister">Password</label>
+                                <input type="password" id="inputPasswordRegister" class="form-control"  aria-describedby="passwordHelpBlock">
+                                <small id="bmd-help" class="form-text text-muted">
+                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters,
+                                    or emoji.
+                                </small>
+                            </div>
+                            <button type="button" onclick="registerUser()" class="btn btn-raised btn-danger">Register</button>
+                            <button type="button" onclick="ShowRegisteringForm()" class="btn btn-raised btn-danger">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+            <div class="w-100"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
